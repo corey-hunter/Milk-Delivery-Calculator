@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<center>
+<body bgcolor="red" font-family='arial'>
+
+<h3><font face="arial">Calculator Milk Delivery</h3>
+<div>
+How many bottles would you like?: <input  id="firstNumber" value="">
+</div>
+<div>
+How much did you give the Delivery Driver? <input id="secondNumber" value="">
+</div>
+<button onclick="getMilk()">SUBMIT</button>
+<p id="bottleResults"></p>
+<p id="moneyResults">
+<p id="changeResults"></p>
+</font>
+</center>
+
+
+<script>
+  function getMilk() {
+       var bottleAmount = document.getElementById("firstNumber").value;
+       //console.log(bottleAmount);
+       var moneyGiven   = document.getElementById("secondNumber").value;
+       //console.log(moneyGiven);
+       var bottleCost   = 1.50;
+       var bottleTotal  = bottleAmount * bottleCost;
+       var changeGiven  = moneyGiven - bottleTotal;
+       var n = changeGiven.toFixed(2);
+       var o =  parseFloat(moneyGiven).toFixed(2);
+       var bottle= "bottle";
+       if (bottleAmount >1){
+         bottle = "bottles";
+       }
+       var negativeBalance = changeGiven;
+       if (negativeBalance < 0){
+         alert("The money given to the robot is not enough.")
+       }
+
+
+     var resultNotification1 = "You ordered " + bottleAmount + " " + bottle +" " + " of milk.";
+     document.getElementById("bottleResults").innerHTML = resultNotification1;
+
+     var resultNotification2 = "You gave the Delivery Driver $" + o + ".";
+     document.getElementById("moneyResults").innerHTML = resultNotification2;
+
+     var resultNotification3 = "Your change is $ " + n + ".";
+     document.getElementById("changeResults").innerHTML = resultNotification3;
+  }
+
+</script>
+
+</body>
+</html>
